@@ -449,6 +449,9 @@ public final class DataStack: Equatable {
     public let userInfo = UserInfo()
     
     
+    public let mainContext: NSManagedObjectContext
+    
+    
     // MARK: Equatable
     
     public static func == (lhs: DataStack, rhs: DataStack) -> Bool {
@@ -463,7 +466,6 @@ public final class DataStack: Equatable {
     
     internal let coordinator: NSPersistentStoreCoordinator
     internal let rootSavingContext: NSManagedObjectContext
-    internal let mainContext: NSManagedObjectContext
     internal let schemaHistory: SchemaHistory
     internal let childTransactionQueue = DispatchQueue.serial("com.coreStore.dataStack.childTransactionQueue", qos: .utility)
     internal let storeMetadataLock: NSRecursiveLock = .init()
